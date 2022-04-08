@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const registerTemplateCopy = require('../models/signUpModels')
 
-app.post('/register', (req, res) => {
+router.post('/register', (req, res) => {
     const registeredUser = new registerTemplateCopy({
         username:req.body.username,
         password:req.body.password,

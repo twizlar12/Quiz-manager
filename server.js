@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const routesUrls = require('./backend/routes/routes')
+const cors = require('cors')
 
 dotenv.config()
 
@@ -21,4 +23,7 @@ app.get('/register', (req, res) => {
     res.render('register.ejs')
 })
 
-app.listen(3000)
+app.use(express.json())
+app.use(cors())
+app.use('/app', routesUrls)
+app.listen(3000, () => console.log('Server is up and running'))
